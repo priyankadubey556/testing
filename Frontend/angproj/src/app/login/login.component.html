@@ -1,0 +1,31 @@
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form #userform ="ngForm" id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Email:</label><br>
+                                <input type="email" placeholder="Enter Email" required name="email" id="username" class="form-control" [(ngModel)] = "mail" #email="ngModel" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+                                <span class = "error" *ngIf = "email.invalid && email.touched && email.errors.required">Email can't be blank</span>
+                                <span class = "error" *ngIf = "email.invalid && email.touched && email.errors.pattern">Email is invalid</span>
+                                </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" placeholder="Enter Password" name="password" [(ngModel)] = "psw" #password ="ngModel" id="password" class="form-control">
+                                
+                                </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"></label><br>
+                                <button type="submit" name="submit" class="log btn btn-info btn-md" (click)="login(userform)" [disabled] = "!userform.valid">Submit</button>
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a routerLink = "/signup" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

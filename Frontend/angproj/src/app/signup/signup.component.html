@@ -1,0 +1,51 @@
+<div id="login">
+  <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+          <div id="login-column" class="col-md-6">
+              <div id="login-box" class="col-md-12">
+                  <form  [formGroup]="addPostForm" (ngSubmit)="saveForm()"id="login-form" class="form" action="" method="post">
+                      <h3 class="text-center text-info">Signup</h3>
+                      <div class="form-group">
+                        <label for="firstname" class="text-info">First Name:</label><br>
+                        <input type="text" required formControlName="firstName" class="form-control">
+                        <div class="alert alert-danger error" *ngIf="addPostForm.controls.firstName.invalid && addPostForm.controls.firstName.touched && addPostForm.controls.firstname.errors.required">Person name can't be blank</div>
+                        <div class="alert alert-danger error" *ngIf="addPostForm.controls.firstName.invalid && addPostForm.controls.firstName.touched && addPostForm.controls.firstName.errors.pattern">Person name should contain alphabets only</div>
+                        <span class="alert alert-danger error" *ngIf="addPostForm.controls.firstName.invalid && addPostForm.controls.firstName.touched && addPostForm.controls.firstName.errors.maxlength">Max length: 20</span>
+                        <span class=" alert alert-danger error" *ngIf="addPostForm.controls.firstName.invalid && addPostForm.controls.firstName.touched && addPostForm.controls.firstName.errors.minlength">Min length: 5</span>
+   
+                        </div>
+                        <div class="form-group">
+                          <label for="lastname" class="text-info">Last Name:</label><br>
+                          <input type="text" required formControlName="lastName" class="form-control">
+                          <div class="alert alert-danger error" *ngIf="addPostForm.controls.lastName.invalid && addPostForm.controls.lastName.touched && addPostForm.controls.lastName.errors.required">Person name can't be blank</div>
+                          <div class="alert alert-danger error" *ngIf="addPostForm.controls.lastName.invalid && addPostForm.controls.lastName.touched && addPostForm.controls.lastName.errors.pattern">Person name should contain alphabets only</div>
+                          <span class="alert alert-danger error" *ngIf="addPostForm.controls.lastName.invalid && addPostForm.controls.lastName.touched && addPostForm.controls.lastName.errors.maxlength">Max length: 20</span>
+                           <span class=" alert alert-danger error" *ngIf="addPostForm.controls.lastName.invalid && addPostForm.controls.lastName.touched && addPostForm.controls.lastname.errors.minlength">Min length: 5</span>
+   
+                          </div>
+                        <div class="form-group">
+                          <label for="email" class="text-info">Email:</label><br>
+                          <input type="email" required formControlName="email" class="form-control">
+                          <span class="alert alert-danger error" *ngIf="addPostForm.controls.email.invalid && addPostForm.controls.email.touched && addPostForm.controls.email.errors.required">Email can't be blank</span>
+                          <span class="alert alert-danger error" *ngIf="addPostForm.controls.email.invalid && addPostForm.controls.email.touched && addPostForm.controls.email.errors.pattern">Email is invalid</span>
+    
+                          </div>
+                      <div class="form-group">
+                          <label for="password" class="text-info">Password:</label><br>
+                          <input type="password" formControlName="password" class="form-control">
+                          
+
+                          </div>
+                      <div class="form-group">
+                          <label for="remember-me" class="text-info"> </label><br>
+                          <button type="submit" [disabled]="!addPostForm.valid" name="submit" class="log btn btn-info btn-md">Submit</button>
+                      </div>
+                      <div id="register-link" class="text-right">
+                        <a routerLink = "/" class="text-info">Login here</a>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
